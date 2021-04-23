@@ -1,0 +1,14 @@
+<form (ngSubmit)="save()">
+	<input type="file" name="myFile" (change)="onFileSelect($event)"> <br>
+	<input type="text" [(ngModel)]="filesPayload.fld_title" [ngModelOptions]="{standalone: true}" placeholder="Title"> <br>
+	<input type="text" [(ngModel)]="filesPayload.fld_category" [ngModelOptions]="{standalone: true}" placeholder="Category"> <br>
+	<input type="text" [(ngModel)]="filesPayload.fld_amount" [ngModelOptions]="{standalone: true}" placeholder="Amount"> <br>
+	<input type="text" [(ngModel)]="filesPayload.fld_quantity" [ngModelOptions]="{standalone: true}" placeholder="Quantity"> <br>
+	<button type="submit">Save File</button>
+</form>
+
+<div *ngFor="let item of data">
+	<img src="{{item.fld_path}}" alt="Image">	
+	<button (click)="remove(item.fld_id)">Remove</button>
+	<button (click)="download(item.fld_id, item.fld_title)">Download</button>
+</div>
