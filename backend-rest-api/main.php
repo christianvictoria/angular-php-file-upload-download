@@ -40,7 +40,7 @@
 						'fld_category' => $_POST['category'],
 						'fld_amount' => $_POST['amount'],
 						'fld_quantity' => $_POST['quantity'],
-						'fld_path' => "http://localhost/angular-file-upload/barangay-payment-api/$destination"
+						'fld_path' => "http://localhost/angular-file-upload/backend-rest-api/$destination"
 					];
 					if(move_uploaded_file($file_tmp_name, $destination)) echo json_encode($post->upload_file("tbl_files", $d), JSON_PRETTY_PRINT);
 				break;

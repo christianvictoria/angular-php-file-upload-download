@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FilesService {
 
-  BASE_URL = "http://localhost/angular-file-upload/barangay-payment-api/";
+  BASE_URL = "http://localhost/angular-file-upload/backend-rest-api/";
   constructor(
   	private http: HttpClient
   ) { }
