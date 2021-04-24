@@ -51,8 +51,26 @@
 					break;
 
 				case 'download':
-					if (count($req) > 1) {
-						echo file_get_contents($post->select_path("tbl_files", "fld_id = $req[1] AND fld_isDeleted = 0"));
+					echo file_get_contents($post->select_path("tbl_files", "fld_id = $req[1] AND fld_isDeleted = 0"));
+					break;
+
+				case 'watermark':
+					// Load the stamp and the photo to apply the watermark to
+					$stamp = imagecreatefrompng('uploads/watermarked/logo.png');
+					$image = imagecreatefromjpeg('uploads/20210424103307.jpg');
+
+					$marge_right = 10;
+					$marge_bottom = 10;
+					$stampX = imagesx($stamp);
+					$stampY = imagesy($stamp);
+
+					imagecopy($image, $stamp, imagesx($image) - $stampX - $marge_right, imagesy($image) - $stampY - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+
+					header('Content-type: image/jpeg');
+					if(imagejpeg($image, "uploads/watermarked/watermarked.jpg")) {
+						echo json_encode("http://localhost/angular-file-upload/backend-rest-api/uploads/watermarked/watermarked.jpg");
+					} else {
+						echo "Failed";
 					}
 					break;
 

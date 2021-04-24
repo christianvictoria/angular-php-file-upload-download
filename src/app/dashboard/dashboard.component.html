@@ -1,3 +1,4 @@
+<button (click)="watermarked()">Watermark</button>
 <form (ngSubmit)="save()">
 	<input type="file" name="myFile" (change)="onFileSelect($event)"> <br>
 	<input type="text" [(ngModel)]="filesPayload.fld_title" [ngModelOptions]="{standalone: true}" placeholder="Title"> <br>
@@ -12,3 +13,5 @@
 	<button (click)="remove(item.fld_id)">Remove</button>
 	<button (click)="download(item.fld_id, item.fld_title)">Download</button>
 </div>
+
+<img src="{{ watermarkedImage }}" alt="Water Marked Image">

@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   filesPayload: Files;
   data: any[] = [];
   file_path: string;
+  watermarkedImage: any;
   constructor(
     private filesService: FilesService,
     private formBuilder: FormBuilder
@@ -32,6 +33,17 @@ export class DashboardComponent implements OnInit {
     this.getImages();
   }
 
+  watermarked = async (): Promise<void> => {
+    try {
+      const response = await this.filesService.watermarkedFileRequest("watermark", null);
+      if (response) {
+        this.watermarkedImage = response;
+        console.log(this.watermarkedImage);
+      }
+    } catch(error) {
+      console.log(error);
+    }
+  }
   getImages = async (): Promise<void> => {
     try {
       const response = await this.filesService.sendApiRequest("files/" + 0, null);

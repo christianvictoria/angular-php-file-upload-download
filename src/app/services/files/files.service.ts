@@ -26,4 +26,9 @@ export class FilesService {
     const response: any = await this.http.post(this.BASE_URL + btoa(endpoint), btoa(JSON.stringify(data)), {responseType: 'blob'}).toPromise();
     return response;
   }
+
+  public watermarkedFileRequest = async (endpoint: string, data: any): Promise<any> => {
+    const response: any = await this.http.post(this.BASE_URL + btoa(endpoint), btoa(JSON.stringify(data))).toPromise();
+    return response;
+  }
 }

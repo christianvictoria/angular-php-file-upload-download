@@ -5,6 +5,7 @@ export class Files {
 	fld_amount: string;
 	fld_quantity: string;
 	fld_path: string;
+
 	constructor() {
 	this.fld_title = "";
 	this.fld_category = "";
