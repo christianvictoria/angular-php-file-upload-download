@@ -55,9 +55,9 @@
 					break;
 
 				case 'watermark':
-					// Load the stamp and the photo to apply the watermark to
+					// Make sure you have the following imgs in the following directories
 					$stamp = imagecreatefrompng('uploads/watermarked/logo.png');
-					$image = imagecreatefromjpeg('uploads/20210424103307.jpg');
+					$image = imagecreatefromjpeg('uploads/20210425090329.jpg');
 
 					$marge_right = 10;
 					$marge_bottom = 10;
