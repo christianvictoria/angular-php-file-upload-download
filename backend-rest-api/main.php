@@ -5,7 +5,7 @@
 	$pdo = $db->connect();
 	$gm = new GlobalMethods($pdo);
 	$post = new Post($pdo);
-
+	// TEST COMMENT
 	if (isset($_REQUEST['request'])) {
 		$req = explode('/', rtrim(base64_decode($_REQUEST['request']), '/'));	
 	} else {
